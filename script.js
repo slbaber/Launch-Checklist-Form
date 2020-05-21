@@ -11,3 +11,20 @@
 </ol>
 <img src="${}">
 */
+
+
+window.addEventListener("load", function() {
+   let form = document.querySelector("form");
+   form.addEventListener("submit", function(event) {
+     let inPilot = document.querySelector("input[name=pilotName]");
+     let inCopilot = document.querySelector("input[name=copilotName]");
+     let inFuel = document.querySelector("input[name=fuelLevel]");
+     let inMass = document.querySelector("input[name=cargoMass]");
+
+     if (inPilot.value === "" || inCopilot.value === "" || inFuel.value === "" || inMass.value === "" || isNaN(Number(inFuel.value)) || isNaN(Number(inMass.value)))  {
+         alert("All fields are required!  Fuel and Mass levels should be entered as numbers!");
+         // stop the form submission
+         event.preventDefault();
+     }
+   });
+});
